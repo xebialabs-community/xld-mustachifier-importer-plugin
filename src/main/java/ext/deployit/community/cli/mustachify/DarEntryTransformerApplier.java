@@ -9,7 +9,8 @@ import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSet;
 import de.schlichtherle.truezip.file.TFile;
 import de.schlichtherle.truezip.file.TFileInputStream;
-import ext.deployit.community.cli.mustachify.dar.DarManifestParser.DarManifest.DarManifestEntry;
+
+import ext.deployit.community.cli.mustachify.dar.DarManifestEntry;
 import ext.deployit.community.cli.mustachify.io.TFiles;
 import ext.deployit.community.cli.mustachify.transform.DarEntryTransformer;
 

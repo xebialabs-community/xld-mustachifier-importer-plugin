@@ -15,10 +15,7 @@ import de.schlichtherle.truezip.file.TFile;
 import ext.deployit.community.cli.mustachify.DarEntryTransformerApplier.DarEntry;
 import ext.deployit.community.cli.mustachify.config.ConfigParser;
 import ext.deployit.community.cli.mustachify.config.TransformParser;
-import ext.deployit.community.cli.mustachify.dar.DarManifestParser;
-import ext.deployit.community.cli.mustachify.dar.DarReader;
-import ext.deployit.community.cli.mustachify.dar.DarWriter;
-import ext.deployit.community.cli.mustachify.dar.DarManifestParser.DarManifest.DarManifestEntry;
+import ext.deployit.community.cli.mustachify.dar.*;
 import ext.deployit.community.cli.mustachify.transform.DarEntryTransformer;
 import ext.deployit.community.cli.mustachify.transform.DarEntryTransformer.TransformerFactory;
 import ext.deployit.community.cli.mustachify.transform.RegexReplaceTransformer.RegexReplaceTransformerFactory;
@@ -40,6 +37,7 @@ import static ext.deployit.community.cli.mustachify.collect.Maps2.fromKeys;
 import static ext.deployit.community.cli.mustachify.collect.Maps2.transformKeys;
 import static ext.deployit.community.cli.mustachify.dar.DarReader.checkValidDar;
 import static ext.deployit.community.cli.mustachify.dar.DarReader.getManifest;
+import static ext.deployit.community.cli.mustachify.dar.DarReader.getXmlManifest;
 import static ext.deployit.community.cli.mustachify.io.Files2.getTempFilePath;
 import static java.lang.String.format;
 import static org.apache.commons.io.FilenameUtils.getBaseName;
@@ -98,7 +96,7 @@ public class Mustachifier {
         }
         
         Set<DarManifestEntry> manifestEntries = 
-            new DarManifestParser(getManifest(sourceArchive)).get().entries;
+            new DarXmlManifestParser(getXmlManifest(sourceArchive)).get().entries;
         
         // only entries with one (or more, which should be a warning condition) kept
         Map<DarManifestEntry, DarEntryTransformer> entriesToTransform = filterValues(

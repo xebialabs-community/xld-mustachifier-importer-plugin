@@ -22,7 +22,7 @@ import de.schlichtherle.truezip.file.TFileInputStream;
  *
  */
 public class DarReader {
-    public static final String MANIFEST_PATH = "META-INF/MANIFEST.MF";
+    public static final String MANIFEST_PATH = "deployit-manifest.xml";
     
     public static @Nonnull Manifest getManifest(@Nonnull File dar) throws IOException {
         TFileInputStream manifestEntryStream = 
@@ -32,6 +32,10 @@ public class DarReader {
         } finally {
             manifestEntryStream.close();
         }
+    }
+
+    public static @Nonnull TFile getXmlManifest(@Nonnull File dar) throws IOException {
+        return getEntry(dar, MANIFEST_PATH);
     }
     
     public static @Nonnull TFile getEntry(@Nonnull File dar, @Nonnull String path) {
@@ -43,7 +47,7 @@ public class DarReader {
     public static void checkValidDar(TFile file) {
         checkArgument(file.exists(), "File '%s' does not exist or cannot be read", file);
         checkArgument(file.isArchive(), "File '%s' is not a valid ZIP archive", file);
-        checkArgument(new TFile(file, MANIFEST_PATH).exists(), 
+        checkArgument(new TFile(file, MANIFEST_PATH).exists(),
                 "Archive '%s' does not contain a manifest at '%s'", file, MANIFEST_PATH);
     }
 }

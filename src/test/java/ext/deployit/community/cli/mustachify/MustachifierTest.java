@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for the {@link Mustachifier}
  */
 public class MustachifierTest {
-    public static final String TEST_ARCHIVE_PATH = "src/test/resources/sample-dar.zip";
+    public static final String TEST_ARCHIVE_PATH = "src/test/resources/sample-xml-dar.zip";
 
     private Mustachifier converter = new Mustachifier();
     private File result;

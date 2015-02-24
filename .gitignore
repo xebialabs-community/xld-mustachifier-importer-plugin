@@ -6,4 +6,6 @@ gradle/dependencies.conf
 *.iws
 META-INF/
 deployit-manifest.xml
+out/
+log/
 
