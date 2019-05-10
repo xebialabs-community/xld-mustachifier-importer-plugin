@@ -8,6 +8,5 @@ deploy:
     all_branches: true
     tags: true
 notifications:
-  hipchat:
-    rooms:
-      secure: T0EFV0NmJT/7Nc9PlA7zUY7ppI48wJ2M3jyTdPTfs4F0IDrfgQr6p2+iIFz+Dkyv6IXc13GN92z6xPPU6zp5yRAgNb1cP1UjfgDNP6KYMF04WLVZqvTQxBmC6QSUo4WFpN3H1Zx1oxGHEAq0V/jpMBELw+tWpAyMCfKWNJCshdQ=
+  slack:
+    secure: IQNhkVEVK1HSDNLRHWdP01/DMZcnk6SU5cwYFQyXaUUJo023bpyCFMdlJNpGgkf5+AINVe4jcXsXdHm3SR5rdVF2zm+/83ei2co3lAYxiGT2QcWTG+V7p4svWAqy2OyLTnXio7xXcIHmKjqxHdLNqXiuELt12a4hOgWPMkLhLXU=
